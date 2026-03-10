@@ -12,7 +12,7 @@ class ERT_Content_Tools_Note_Block {
 
         return '<div class="ct-note note-' . esc_attr($corner) . '" style="background-color:' . esc_attr($paperColor) . ';' . $inline . '">
                     <div class="note-pin" style="background-color:' . esc_attr($pinColor) . '"></div>
-                    <div class="note-fold" style="background-color:' . esc_attr($foldColor) . '"></div>
+                    <div class="note-fold" style="--ct-note-fold-color:' . esc_attr($foldColor) . ';"></div>
                     <div class="note-text">' . wp_kses_post($text) . '</div>
                 </div>';
     }

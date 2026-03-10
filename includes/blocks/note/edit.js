@@ -4,7 +4,8 @@ import { PanelBody, SelectControl, ColorPalette } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
     const blockProps = useBlockProps({
-        className: `ct-note note-${attributes.corner}`
+        className: `ct-note note-${attributes.corner}`,
+        style: { backgroundColor: attributes.paperColor }
     });
 
     return (
@@ -28,7 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onChange={(val) => setAttributes({ paperColor: val })}
                     />
                     <ColorPalette
-                        label={__('Fold Color', 'ert-content-tools')}
+                        label={__('Inner Fold Color', 'ert-content-tools')}
                         value={attributes.foldColor}
                         onChange={(val) => setAttributes({ foldColor: val })}
                     />
@@ -41,7 +42,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
             <div {...blockProps}>
                 <div className="note-pin" style={{ backgroundColor: attributes.pinColor }}></div>
-                <div className="note-fold" style={{ backgroundColor: attributes.foldColor }}></div>
+                <div className="note-fold" style={{ '--ct-note-fold-color': attributes.foldColor }}></div>
                 <RichText
                     tagName="div"
                     className="note-text"

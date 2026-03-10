@@ -9,7 +9,7 @@ export default function save({ attributes }) {
     return (
         <div {...blockProps}>
             <div className="note-pin" style={{ backgroundColor: attributes.pinColor }}></div>
-            <div className="note-fold" style={{ backgroundColor: attributes.foldColor }}></div>
+            <div className="note-fold" style={{ '--ct-note-fold-color': attributes.foldColor }}></div>
             <RichText.Content tagName="div" className="note-text" value={attributes.text} />
         </div>
     );
