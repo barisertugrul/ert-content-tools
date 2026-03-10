@@ -2,6 +2,11 @@
 import { useBlockProps } from "@wordpress/block-editor";
 import { TextControl, Button, SelectControl } from "@wordpress/components";
 
+// WordPress Dashicons tam listesi (kısa, en popülerler ve eklenebilir)
+const dashicons = [
+  "dashicons-menu", "dashicons-admin-site", "dashicons-dashboard", "dashicons-admin-post", "dashicons-admin-media", "dashicons-admin-links", "dashicons-admin-page", "dashicons-admin-comments", "dashicons-admin-appearance", "dashicons-admin-plugins", "dashicons-admin-users", "dashicons-admin-tools", "dashicons-admin-settings", "dashicons-admin-network", "dashicons-admin-generic", "dashicons-admin-home", "dashicons-admin-collapse", "dashicons-filter", "dashicons-archive", "dashicons-tag", "dashicons-upload", "dashicons-edit", "dashicons-trash", "dashicons-external", "dashicons-update", "dashicons-save", "dashicons-share", "dashicons-search", "dashicons-visibility", "dashicons-star", "dashicons-heart", "dashicons-flag", "dashicons-smiley", "dashicons-yes", "dashicons-no", "dashicons-warning", "dashicons-info", "dashicons-plus", "dashicons-minus", "dashicons-arrow-right", "dashicons-arrow-left", "dashicons-arrow-up", "dashicons-arrow-down", "dashicons-calendar", "dashicons-calendar-alt", "dashicons-clock", "dashicons-location", "dashicons-image", "dashicons-images-alt", "dashicons-images-alt2", "dashicons-video-alt", "dashicons-video-alt2", "dashicons-video-alt3", "dashicons-category", "dashicons-admin-customizer", "dashicons-admin-multisite", "dashicons-admin-plugins", "dashicons-admin-users", "dashicons-admin-tools", "dashicons-admin-settings", "dashicons-admin-network", "dashicons-admin-generic", "dashicons-admin-home", "dashicons-admin-collapse"
+];
+
 export default function Edit({ attributes, setAttributes }) {
   const blockProps = useBlockProps({
     className: "ct-listgroup list-group",
@@ -21,6 +26,12 @@ export default function Edit({ attributes, setAttributes }) {
     setAttributes({ items: newItems });
   };
 
+  const removeItem = (index) => {
+    const newItems = [...attributes.items];
+    newItems.splice(index, 1);
+    setAttributes({ items: newItems });
+  };
+
   const addItem = () => {
     const uniqueId = "listitem_" + Math.random().toString(36).substr(2, 9);
     const newItems = [
@@ -30,102 +41,83 @@ export default function Edit({ attributes, setAttributes }) {
     setAttributes({ items: newItems });
   };
 
-  const removeItem = (index) => {
-    const newItems = attributes.items.filter((_, i) => i !== index);
-    setAttributes({ items: newItems });
-  };
-
   return (
     <div {...blockProps}>
-      <div className="list-group" style={{ marginBottom: "15px" }}>
-        {attributes.items.map((item, index) => {
-          const itemObj =
-            typeof item === "string"
-              ? { text: item, icon: "", badge: "", badgeColor: "primary" }
-              : item;
-
-          return (
-            <div key={index} className="list-group-item">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  {itemObj.icon && (
-                    <i
-                      className={`fa ${itemObj.icon}`}
-                      style={{ marginRight: "0.5rem" }}
-                    ></i>
-                  )}
-                  <span>
-                    {__("Item", "ert-content-tools")} {index + 1}
-                  </span>
-                </div>
-                <Button onClick={() => removeItem(index)} isDestructive isSmall>
-                  {__("Remove", "ert-content-tools")}
-                </Button>
-              </div>
-
+      {attributes.items.map((itemObj, index) => {
+        let iconElem = null;
+        if (itemObj.icon && itemObj.icon.startsWith("dashicons-")) {
+          iconElem = (
+            <span className={`dashicons dashicons-before ${itemObj.icon}`} style={{ marginRight: "0.5rem", fontSize: "1.2em", verticalAlign: "middle", display: "inline-flex", alignItems: "center", height: "1.5em" }}></span>
+          );
+        } else if (itemObj.icon) {
+          iconElem = (
+            <i className={itemObj.icon} style={{ marginRight: "0.5rem", fontSize: "1.2em", verticalAlign: "middle", display: "inline-flex", alignItems: "center", height: "1.5em" }}></i>
+          );
+        }
+        return (
+          <div key={index} className="list-group-item" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+            {iconElem}
+            <div style={{ marginRight: "0.5rem", minWidth: "120px", flex: "1 1 120px" }}>
               <TextControl
-                label={__("Text", "ert-content-tools")}
+                label={__("Item Text", "ert-content-tools")}
                 value={itemObj.text || ""}
                 onChange={(val) => updateItem(index, "text", val)}
+                placeholder={__("List item text", "ert-content-tools")}
               />
-              <div
-                style={{
-                  display: "flex",
-                  gap: "10px",
-                  alignItems: "flex-start",
-                }}
-              >
-                <div style={{ width: "120px" }}>
-                  <TextControl
-                    label={__("Badge", "ert-content-tools")}
-                    value={itemObj.badge || (index + 1).toString()}
-                    onChange={(val) => updateItem(index, "badge", val)}
-                  />
-                </div>
-                <div style={{ width: "120px" }}>
-                  <SelectControl
-                    label={__("Badge Color", "ert-content-tools")}
-                    value={itemObj.badgeColor || "primary"}
-                    onChange={(val) => updateItem(index, "badgeColor", val)}
-                    options={[
-                      { label: "Primary", value: "primary" },
-                      { label: "Secondary", value: "secondary" },
-                      { label: "Success", value: "success" },
-                      { label: "Danger", value: "danger" },
-                      { label: "Warning", value: "warning" },
-                      { label: "Info", value: "info" },
-                      { label: "Light", value: "light" },
-                      { label: "Dark", value: "dark" },
-                    ]}
-                  />
-                </div>
-                <div style={{ width: "200px" }}>
-                  <TextControl
-                    label={__(
-                      "Icon (FontAwesome class)",
-                      "ert-content-tools",
-                    )}
-                    value={itemObj.icon || ""}
-                    placeholder="e.g. fa-solid, fa-star, fa-lg"
-                    onChange={(val) => updateItem(index, "icon", val)}
-                  />
-                </div>
-              </div>
             </div>
-          );
-        })}
-      </div>
-
-      <Button onClick={addItem} isPrimary>
+            <div style={{ marginRight: "0.5rem", minWidth: "120px", flex: "1 1 120px" }}>
+              <SelectControl
+                label={__("Icon", "ert-content-tools")}
+                value={itemObj.icon && itemObj.icon.startsWith("dashicons-") ? itemObj.icon : ""}
+                options={[
+                  { label: __("No icon", "ert-content-tools"), value: "" },
+                  ...dashicons.map((icon) => ({ label: icon.replace("dashicons-", ""), value: icon }))
+                ]}
+                onChange={(val) => updateItem(index, "icon", val)}
+              />
+            </div>
+            <div style={{ marginRight: "0.5rem", minWidth: "120px", flex: "1 1 120px" }}>
+              <TextControl
+                label={__("Custom Icon Class", "ert-content-tools")}
+                value={itemObj.icon && !itemObj.icon.startsWith("dashicons-") ? itemObj.icon : ""}
+                onChange={(val) => updateItem(index, "icon", val)}
+                placeholder={__("fa fa-star veya custom class", "ert-content-tools")}
+              />
+            </div>
+            <div style={{ marginRight: "0.5rem", minWidth: "80px", flex: "1 1 80px" }}>
+              <TextControl
+                label={__("Badge Value", "ert-content-tools")}
+                value={itemObj.badge || ""}
+                onChange={(val) => updateItem(index, "badge", val)}
+                placeholder={__("Badge text", "ert-content-tools")}
+              />
+            </div>
+            <div style={{ marginRight: "0.5rem", minWidth: "80px", flex: "1 1 80px" }}>
+              <SelectControl
+                label={__("Badge Color", "ert-content-tools")}
+                value={itemObj.badgeColor}
+                options={[
+                  { label: "Primary", value: "primary" },
+                  { label: "Secondary", value: "secondary" },
+                  { label: "Success", value: "success" },
+                  { label: "Danger", value: "danger" },
+                ]}
+                onChange={(val) => updateItem(index, "badgeColor", val)}
+              />
+            </div>
+            <Button
+              isDestructive
+              onClick={() => removeItem(index)}
+              style={{ marginLeft: "1rem" }}
+            >
+              {__("Remove", "ert-content-tools")}
+            </Button>
+          </div>
+        );
+      })}
+      <Button onClick={addItem} isPrimary style={{ marginTop: "1rem" }}>
         {__("Add Item", "ert-content-tools")}
       </Button>
     </div>
   );
 }
-

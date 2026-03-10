@@ -14,14 +14,19 @@ class ERT_Content_Tools_ListGroup_Block {
                 continue;
             }
 
-            $icon_class = !empty($item['icon']) ? 'fa ' . esc_attr($item['icon']) : '';
+            $icon_html = '';
+            if (!empty($item['icon']) && strpos($item['icon'], 'dashicons-') === 0) {
+                $icon_html = '<span class="dashicons dashicons-before ' . esc_attr($item['icon']) . '" style="margin-right:0.5rem;font-size:1.2em;"></span>';
+            } elseif (!empty($item['icon'])) {
+                $icon_html = '<i class="' . esc_attr($item['icon']) . '" style="margin-right:0.5rem;font-size:1.2em;"></i>';
+            }
             $text = !empty($item['text']) ? esc_html($item['text']) : '';
             $badge_text = !empty($item['badge']) ? esc_html($item['badge']) : ($index + 1);
             $badge_color = !empty($item['badgeColor']) ? esc_attr($item['badgeColor']) : 'primary';
 
             $output .= '<li id="' . esc_attr($item['id']) . '" class="list-group-item d-flex justify-content-between align-items-center">';
             $output .= '<div class="d-flex align-items-center">';
-            $output .= '<i class="' . $icon_class . '"></i>';
+            $output .= $icon_html;
             $output .= '<span class="listgroup-item-text">' . $text . '</span>';
             $output .= '<span class="badge bg-' . $badge_color . ' rounded-pill">' . $badge_text . '</span>';
             $output .= '</div>';

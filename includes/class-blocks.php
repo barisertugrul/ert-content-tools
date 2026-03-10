@@ -71,7 +71,7 @@ class ERT_Content_Tools_Blocks {
             $dir = plugin_dir_path(__FILE__) . 'blocks/' . $block . '/';
 
             if (!file_exists($dir . 'block.json')) {
-                error_log("Block JSON not found: " . $block);
+                // error_log kaldırıldı, WordPress.org için debug kodu yasaktır.
                 continue;
             }
 

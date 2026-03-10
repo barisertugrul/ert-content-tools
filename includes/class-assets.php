@@ -9,15 +9,8 @@ class ERT_Content_Tools_Assets
         add_action('enqueue_block_assets', [$this, 'ert_enqueue_fontawesome']);
     }
 
-    function ert_enqueue_fontawesome()
-    {
-        wp_enqueue_style(
-            'fontawesome',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
-            array(),
-            '6.5.1'
-        );
-    }
+    // Harici stil dosyası WordPress.org için kaldırıldı.
+    function ert_enqueue_fontawesome() {}
 
     /**
      * CSS/JS for block editor

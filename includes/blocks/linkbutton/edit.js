@@ -2,6 +2,10 @@
 import { useBlockProps, InspectorControls, RichText } from "@wordpress/block-editor";
 import { PanelBody, TextControl, SelectControl } from "@wordpress/components";
 
+const dashicons = [
+    "dashicons-star", "dashicons-heart", "dashicons-flag", "dashicons-smiley", "dashicons-visibility", "dashicons-yes", "dashicons-no", "dashicons-warning", "dashicons-info", "dashicons-edit", "dashicons-plus", "dashicons-minus", "dashicons-arrow-right", "dashicons-arrow-left"
+];
+
 export default function Edit({ attributes, setAttributes }) {
     const blockProps = useBlockProps({
         className: `ct-linkbutton btn btn-${attributes.type}`
@@ -16,10 +20,20 @@ export default function Edit({ attributes, setAttributes }) {
                         value={attributes.url}
                         onChange={(val) => setAttributes({ url: val })}
                     />
-                    <TextControl
-                        label={__("Icon (FontAwesome class)", "ert-content-tools")}
-                        value={attributes.icon}
+                    <SelectControl
+                        label={__("Icon (Dashicons)", "ert-content-tools")}
+                        value={attributes.icon && attributes.icon.startsWith("dashicons-") ? attributes.icon : ""}
+                        options={[
+                          { label: __("No icon", "ert-content-tools"), value: "" },
+                          ...dashicons.map((icon) => ({ label: icon.replace("dashicons-", ""), value: icon }))
+                        ]}
                         onChange={(val) => setAttributes({ icon: val })}
+                    />
+                    <TextControl
+                        label={__("Custom Icon Class", "ert-content-tools")}
+                        value={attributes.icon && !attributes.icon.startsWith("dashicons-") ? attributes.icon : ""}
+                        onChange={(val) => setAttributes({ icon: val })}
+                        placeholder={__("fa fa-star veya custom class", "ert-content-tools")}
                     />
 
                     <SelectControl
@@ -49,15 +63,19 @@ export default function Edit({ attributes, setAttributes }) {
                     />
                 </PanelBody>
             </InspectorControls>
-            <a {...blockProps} href={attributes.url}>
-                {attributes.icon && <i className={`fa ${attributes.icon}`}></i>}
-                <RichText
-                    tagName="span"
-                    value={attributes.text}
-                    onChange={(val) => setAttributes({ text: val })}
-                    placeholder={__("Button text...", "ert-content-tools")}
-                />
-            </a>
+                        <a {...blockProps} href={attributes.url} style={{ display: "inline-flex", alignItems: "center" }}>
+                                {attributes.icon && attributes.icon.startsWith("dashicons-") ? (
+                                    <span className={`dashicons dashicons-before ${attributes.icon}`} style={{ marginRight: "0.5rem", fontSize: "1.2em", verticalAlign: "middle", display: "inline-flex", alignItems: "center", height: "1.5em" }}></span>
+                                ) : attributes.icon ? (
+                                    <i className={attributes.icon} style={{ marginRight: "0.5rem", fontSize: "1.2em", verticalAlign: "middle", display: "inline-flex", alignItems: "center", height: "1.5em" }}></i>
+                                ) : null}
+                                <RichText
+                                        tagName="span"
+                                        value={attributes.text}
+                                        onChange={(val) => setAttributes({ text: val })}
+                                        placeholder={__("Button text...", "ert-content-tools")}
+                                />
+                        </a>
         </>
     );
 }
