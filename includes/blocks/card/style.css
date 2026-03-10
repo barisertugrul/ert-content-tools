@@ -1,0 +1,24 @@
+.ct-card {
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  /*margin: 1rem;*/
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ct-card.card-header {
+  font-weight: bold;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #f8f9fa;
+}
+
+.ct-card.card-body {
+  padding: 0.75rem;
+}
+
+.ct-card.card-footer {
+  padding: 0.75rem;
+  border-top: 1px solid #ddd;
+  background-color: #f8f9fa;
+}

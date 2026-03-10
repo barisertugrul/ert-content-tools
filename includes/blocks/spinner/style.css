@@ -1,0 +1,65 @@
+.ct-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+}
+
+.ct-spinner.spinner-border {
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ct-spin 0.75s linear infinite;
+}
+
+.ct-spinner.spinner-grow {
+  background-color: currentColor;
+  border-radius: 50%;
+  animation: ct-grow 0.75s linear infinite;
+}
+
+.ct-spinner.spinner-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ct-spinner.spinner-md {
+  width: 2rem;
+  height: 2rem;
+}
+
+.ct-spinner.spinner-lg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.ct-spinner.spinner-primary {
+  color: #0d6efd;
+}
+
+.ct-spinner.spinner-success {
+  color: #198754;
+}
+
+.ct-spinner.spinner-info {
+  color: #0dcaf0;
+}
+
+.ct-spinner.spinner-warning {
+  color: #ffc107;
+}
+
+.ct-spinner.spinner-danger {
+  color: #dc3545;
+}
+
+.ct-spinner.spinner-light {
+  color: #f8f9fa;
+}
+
+.ct-spinner.spinner-dark {
+  color: #343a40;
+}
+
+@keyframes ct-spin { to { transform: rotate(360deg); } }
+@keyframes ct-grow { 0% { transform: scale(0); } 50% { transform: scale(1); } 100% { transform: scale(0); } }

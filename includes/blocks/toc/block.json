@@ -1,0 +1,61 @@
+{
+  "apiVersion": 3,
+  "name": "ert-content-tools/toc",
+  "title": "ERT Table of Contents",
+  "category": "widgets",
+  "icon": "list-view",
+  "textdomain": "ert-content-tools",
+  "supports": {
+    "html": true,
+    "className": true,
+    "customClassName": true,
+    "anchor": true,
+    "reusable": true,
+    "align": ["wide", "full"],
+
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true
+    },
+
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "fontStyle": true,
+      "fontWeight": true,
+      "textDecoration": true,
+      "textTransform": true,
+      "letterSpacing": true
+    },
+
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+
+    "shadow": true
+  },
+  "attributes": {
+    "title": { "type": "string", "default": "Table of Contents" },
+    "className": { "type": "string", "default": "" },
+    "style": {
+      "spacing": {},
+      "border": {},
+      "typography": {},
+      "color": {},
+      "shadow": {}
+    }
+  },
+  "editorScript": "file:./build/index.js",
+  "style": "file:./style.css"
+}

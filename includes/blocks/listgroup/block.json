@@ -1,0 +1,65 @@
+{
+  "apiVersion": 3,
+  "name": "ert-content-tools/listgroup",
+  "title": "ERT List Group",
+  "category": "widgets",
+  "icon": "editor-ul",
+  "textdomain": "ert-content-tools",
+  "supports": {
+    "html": true,
+    "className": true,
+    "customClassName": true,
+    "anchor": true,
+    "reusable": true,
+    "align": ["wide", "full"],
+
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true
+    },
+
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "fontStyle": true,
+      "fontWeight": true,
+      "textDecoration": true,
+      "textTransform": true,
+      "letterSpacing": true
+    },
+
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+
+    "shadow": true
+  },
+  "attributes": {
+    "items": { "type": "array", "default": [
+      { "id": "listitem_1", "text": "Item 1", "icon": "", "badge": "1", "badgeColor": "primary" },
+      { "id": "listitem_2", "text": "Item 2", "icon": "", "badge": "2", "badgeColor": "secondary" },
+      { "id": "listitem_3", "text": "Item 3", "icon": "", "badge": "3", "badgeColor": "success" }
+    ] },
+    "className": { "type": "string", "default": "" },
+    "style": {
+      "spacing": {},
+      "border": {},
+      "typography": {},
+      "color": {},
+      "shadow": {}
+    }
+  },
+  "editorScript": "file:./build/index.js",
+  "style": "file:./style.css"
+}

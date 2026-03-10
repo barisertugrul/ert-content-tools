@@ -1,0 +1,15 @@
+{
+  "name": "ert-content-tools",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build-release.js",
+    "build:assets": "wp-scripts build",
+    "clean:build": "node scripts/build-release.js --clean-only",
+    "build:fast": "node scripts/build-release.js --skip-build",
+    "release": "node scripts/build-release.js --skip-build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  }
+}

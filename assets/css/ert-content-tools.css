@@ -1,0 +1,27 @@
+/* Ortak spacing ve typography */
+.ct-block {
+  margin: 1rem 0;
+  font-family: inherit;
+}
+
+/* Ortak renkler */
+.ct-text-primary {
+  color: #0d6efd;
+}
+.ct-text-success {
+  color: #198754;
+}
+.ct-text-warning {
+  color: #ffc107;
+}
+.ct-text-danger {
+  color: #dc3545;
+}
+
+/* Ortak border ve radius */
+.ct-rounded {
+  border-radius: 0.25rem;
+}
+.ct-border {
+  border: 1px solid #dee2e6;
+}

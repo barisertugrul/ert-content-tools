@@ -1,0 +1,67 @@
+.ct-progress.progress {
+	--ct-progress-track: #e9ecef;
+	--ct-progress-bar: #0d6efd;
+	--ct-progress-text: #ffffff;
+	--ct-progress-text-on-track: #212529;
+	--ct-progress-text-on-bar: #ffffff;
+	background: #e9ecef;
+	background-color: var(--ct-progress-track);
+	border-radius: 0.25rem;
+	overflow: hidden;
+	position: relative;
+	height: 1.25rem;
+}
+
+.ct-progress.progress .progress-bar,
+.ct-progress .ct-progress-bar {
+	background: var(--ct-progress-bar);
+	height: 100% !important;
+	min-height: 100%;
+	transition: width 0.6s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	font-size: 0.75rem;
+	padding: 0 0.25rem;
+	box-sizing: border-box;
+	white-space: nowrap;
+}
+
+.ct-progress .ct-progress-label {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	font-size: 0.75rem;
+	line-height: 1;
+	font-weight: 600;
+}
+
+.ct-progress .ct-progress-label-track {
+	color: var(--ct-progress-text-on-track);
+}
+
+.ct-progress .ct-progress-label-fill {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--ct-progress-text-on-bar);
+	white-space: nowrap;
+}
+
+.ct-progress.ct-progress-primary { --ct-progress-bar: #0d6efd; --ct-progress-text: #ffffff; }
+.ct-progress.ct-progress-secondary { --ct-progress-bar: #6c757d; --ct-progress-text: #ffffff; }
+.ct-progress.ct-progress-success { --ct-progress-bar: #198754; --ct-progress-text: #ffffff; }
+.ct-progress.ct-progress-danger { --ct-progress-bar: #dc3545; --ct-progress-text: #ffffff; }
+.ct-progress.ct-progress-warning { --ct-progress-bar: #ffc107; --ct-progress-text: #212529; }
+.ct-progress.ct-progress-info { --ct-progress-bar: #0dcaf0; --ct-progress-text: #212529; }
+.ct-progress.ct-progress-dark { --ct-progress-bar: #212529; --ct-progress-text: #ffffff; }
+.ct-progress.ct-progress-light { --ct-progress-bar: #f8f9fa; --ct-progress-text: #212529; }

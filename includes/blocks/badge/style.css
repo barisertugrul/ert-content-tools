@@ -1,0 +1,9 @@
+.ct-badge { display: inline-block; padding: 0.25em 0.5em; border-radius: 0.25rem; font-size: 0.75rem; }
+.ct-badge.badge-primary { background-color: #0d6efd; color: #fff; }
+.ct-badge.badge-secondary { background-color: #6c757d; color: #fff; }
+.ct-badge.badge-success { background-color: #198754; color: #fff; }
+.ct-badge.badge-danger { background-color: #dc3545; color: #fff; }
+.ct-badge.badge-warning { background-color: #ffc107; color: #fff; }
+.ct-badge.badge-info { background-color: #0dcaf0; color: #fff; }
+.ct-badge.badge-light { background-color: #f8f9fa; color: #000; }
+.ct-badge.badge-dark { background-color: #343a40; color: #fff; }

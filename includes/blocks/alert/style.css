@@ -1,0 +1,11 @@
+.ct-alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+.ct-alert.alert-info    { background-color: #e7f3fe; color: #31708f; }
+.ct-alert.alert-success { background-color: #dff0d8; color: #3c763d; }
+.ct-alert.alert-warning { background-color: #fcf8e3; color: #8a6d3b; }
+.ct-alert.alert-danger  { background-color: #f2dede; color: #a94442; }
+.ct-alert.alert-light   { background-color: #fcf8e3; color: #8a6d3b; }
+.ct-alert.alert-dark    { background-color: #f2dede; color: #a94442; }

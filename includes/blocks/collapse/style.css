@@ -1,0 +1,12 @@
+.ct-collapse.body { transition: height 0.3s ease; overflow: hidden; }
+.ct-collapse.body.show { height: auto; }
+.ct-collapse.body.collapsing { height: 0; }
+.ct-collapse.body.collapsed { height: 0; }
+.ct-collapse .header { cursor: pointer; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background: #f8f9fa; color: #333; }
+.ct-collapse .body { padding: 10px; border: 1px solid #ccc; border-top: none; border-radius: 0 0 5px 5px; background: #fff; }
+.ct-collapse {
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

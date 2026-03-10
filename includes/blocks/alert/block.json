@@ -1,0 +1,65 @@
+{
+  "apiVersion": 3,
+  "name": "ert-content-tools/alert",
+  "title": "ERT Alert",
+  "category": "widgets",
+  "icon": "warning",
+  "textdomain": "ert-content-tools",
+  "description": "Alert block",
+  "keywords": ["alert", "warning", "notification"],
+  "supports": {
+    "html": true,
+    "className": true,
+    "customClassName": true,
+    "anchor": true,
+    "reusable": true,
+    "align": ["wide", "full"],
+
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true
+    },
+
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "fontStyle": true,
+      "fontWeight": true,
+      "textDecoration": true,
+      "textTransform": true,
+      "letterSpacing": true
+    },
+
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+
+    "shadow": true
+  },
+
+  "attributes": {
+    "message": { "type": "string", "default": "" },
+    "type": { "type": "string", "default": "" },
+    "className": { "type": "string", "default": "" },
+    "style": {
+      "spacing": {},
+      "border": {},
+      "typography": {},
+      "color": {},
+      "shadow": {}
+    }
+  },
+  "editorScript": "file:./build/index.js",
+  "style": "file:./style.css"
+}

@@ -1,0 +1,80 @@
+/* Blok görünürlüğü grid düzeni */
+.ert-settings-page .settings-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ert-settings-page .settings-block {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.75rem;
+    background: #fff;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.ert-settings-page .settings-block:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    background: #f9f9f9;
+}
+.ert-settings-page .settings-block label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+/* Başlık stilini güçlendirme */
+.ert-settings-page h2 {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #0073aa; /* WP admin mavisi */
+    padding-bottom: 0.3rem;
+    color: #23282d;
+}
+
+/* Default ayarlar hizalama */
+.ert-settings-page .settings-defaults {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0.75rem 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.ert-settings-page .settings-defaults label {
+    font-weight: bold;
+}
+
+.ert-settings-page .settings-defaults select,
+.ert-settings-page .settings-defaults input[type="text"] {
+    width: 100%;
+    max-width: 280px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fdfdfd;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ert-settings-page .settings-defaults select:focus,
+.ert-settings-page .settings-defaults input[type="text"]:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 4px rgba(0,115,170,0.4);
+    outline: none;
+}
+
+/* Submit butonuna ufak dokunuş */
+.ert-settings-page .submit input[type="submit"] {
+    background: #0073aa;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.ert-settings-page .submit input[type="submit"]:hover {
+    background: #006799;
+}

@@ -1,0 +1,182 @@
+﻿#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: ERT Content Tools\n"
+"POT-Creation-Date: 2026-02-08 18:09+0300\n"
+"PO-Revision-Date: 2026-02-08 18:08+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.13\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: ert-content-tools.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: ert-content-tools.php:47 ert-content-tools.php:48
+#: ert-content-tools.php:66
+msgid "ERT Content Tools Settings"
+msgstr ""
+
+#: ert-content-tools.php:71
+msgid "Block Visibility"
+msgstr ""
+
+#: ert-content-tools.php:72
+msgid "Select which blocks should be available in block editor."
+msgstr ""
+
+#: ert-content-tools.php:96
+msgid "Default Settings"
+msgstr ""
+
+#: ert-content-tools.php:105
+msgid "Default Alert Type"
+msgstr ""
+
+#: ert-content-tools.php:108
+msgid "Default Spinner Type"
+msgstr ""
+
+#: ert-content-tools.php:111
+msgid "Default Spinner Color"
+msgstr ""
+
+#: ert-content-tools.php:114
+msgid "Default Spinner Size"
+msgstr ""
+
+#: ert-content-tools.php:117
+msgid "Global Settings"
+msgstr ""
+
+#: ert-content-tools.php:119
+msgid "Global CSS Class Prefix"
+msgstr ""
+
+#: includes/blocks/accordion/class-accordion-block.php:12
+msgid "Title 1"
+msgstr ""
+
+#: includes/blocks/accordion/class-accordion-block.php:12
+msgid "Content 1"
+msgstr ""
+
+#: includes/blocks/accordion/class-accordion-block.php:13
+msgid "Title 2"
+msgstr ""
+
+#: includes/blocks/accordion/class-accordion-block.php:13
+msgid "Content 2"
+msgstr ""
+
+#: includes/blocks/alert/class-alert-block.php:11
+msgid "Alert Message"
+msgstr ""
+
+#: includes/blocks/badge/class-badge-block.php:11
+msgid "New"
+msgstr ""
+
+#: includes/blocks/card/class-card-block.php:11
+msgid "Card Title"
+msgstr ""
+
+#: includes/blocks/card/class-card-block.php:12
+msgid "Card Content"
+msgstr ""
+
+#: includes/blocks/collapse/class-collapse-block.php:11
+msgid "Title"
+msgstr ""
+
+#: includes/blocks/collapse/class-collapse-block.php:12
+msgid "Content"
+msgstr ""
+
+#: includes/blocks/listgroup/class-listgroup-block.php:11
+msgid "Item 1"
+msgstr ""
+
+#: includes/blocks/listgroup/class-listgroup-block.php:11
+msgid "Item 2"
+msgstr ""
+
+#: includes/blocks/listgroup/class-listgroup-block.php:11
+msgid "Item 3"
+msgstr ""
+
+#: includes/blocks/llinkbutton/class-linkbutton-block.php:12
+msgid "Link"
+msgstr ""
+
+#: includes/blocks/modal/class-modal-block.php:12
+msgid "Modal Title"
+msgstr ""
+
+#: includes/blocks/modal/class-modal-block.php:13
+msgid "Modal Content"
+msgstr ""
+
+#: includes/blocks/modal/class-modal-block.php:14
+msgid "Open"
+msgstr ""
+
+#: includes/blocks/modal/class-modal-block.php:25
+msgid "Close"
+msgstr ""
+
+#: includes/blocks/popover/class-popover-block.php:11
+msgid "Click me"
+msgstr ""
+
+#: includes/blocks/popover/class-popover-block.php:12
+msgid "Popover content"
+msgstr ""
+
+#: includes/blocks/toc/class-toc-block.php:13
+msgid "Table of Contents"
+msgstr ""
+
+#: includes/blocks/tooltip/class-tooltip-block.php:11
+msgid "Hover me"
+msgstr ""
+
+#: includes/blocks/tooltip/class-tooltip-block.php:12
+msgid "Tooltip Content"
+msgstr ""
+
+#: includes/class-metabox.php:11 includes/class-metabox.php:20
+msgid "Title HTML Tags"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "ERT Content Tools"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.ertyazilim.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A modular plugin that adds blocks such as content index, card, alert, badge, "
+"list group, etc."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "BarÄ±ÅŸ ERTUÄRUL"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.barisertugrul.com"
+msgstr ""
+
+

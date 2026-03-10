@@ -1,0 +1,63 @@
+{
+  "apiVersion": 3,
+  "name": "ert-content-tools/note",
+  "title": "ERT Note",
+  "category": "widgets",
+  "icon": "sticky",
+  "supports": {
+    "html": true,
+    "className": true,
+    "customClassName": true,
+    "anchor": true,
+    "reusable": true,
+    "align": ["wide", "full"],
+
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true
+    },
+
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "fontStyle": true,
+      "fontWeight": true,
+      "textDecoration": true,
+      "textTransform": true,
+      "letterSpacing": true
+    },
+
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+
+    "shadow": true
+  },
+  "attributes": {
+    "corner": { "type": "string", "default": "top-right" },
+    "paperColor": { "type": "string", "default": "#fff8b0" },
+    "foldColor": { "type": "string", "default": "#e0d080" },
+    "text": { "type": "string", "default": "" },
+    "pinColor": { "type": "string", "default": "#ff0000" },
+    "style": {
+      "spacing": {},
+      "border": {},
+      "typography": {},
+      "color": {},
+      "shadow": {}
+    }
+  },
+  "editorScript": "file:./build/index.js",
+  "style": "file:./style.css"
+}
