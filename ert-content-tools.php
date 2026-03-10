@@ -23,14 +23,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/class-plugin-loader.php';
 /**
  * Localization
  */
-function ert_content_tools_load_textdomain() {
-    load_plugin_textdomain(
-        'ert-content-tools',
-        false,
-        dirname(plugin_basename(__FILE__)) . '/languages'
-    );
-}
-add_action('plugins_loaded', 'ert_content_tools_load_textdomain');
+// WordPress 4.6 sonrası çeviri otomatik yüklenir, elle yüklemeye gerek yok.
 
 function ert_content_tools_activate() {
     if (false === get_option('ert_content_tools_enabled_blocks', false)) {
@@ -207,10 +200,10 @@ function ert_content_tools_settings_page() {
     $smoke_test_url = admin_url('options-general.php?page=ert-content-tools-smoke-test');
     ?>
     <div class="wrap ert-settings-page">
-        <h1><?php _e('ERT Content Tools Settings', 'ert-content-tools'); ?></h1>
+        <h1><?php esc_html_e('ERT Content Tools Settings', 'ert-content-tools'); ?></h1>
         <p>
             <a class="button button-secondary" href="<?php echo esc_url($smoke_test_url); ?>">
-                <?php _e('Open Smoke Test Checklist', 'ert-content-tools'); ?>
+                <?php esc_html_e('Open Smoke Test Checklist', 'ert-content-tools'); ?>
             </a>
         </p>
 
@@ -219,8 +212,8 @@ function ert_content_tools_settings_page() {
             <?php settings_fields('ert_content_tools_settings_group'); ?>
             <?php do_settings_sections('ert_content_tools_settings_group'); ?>
 
-            <h2><?php _e('Block Visibility', 'ert-content-tools'); ?></h2>
-            <p><?php _e('Select which blocks should be available in block editor.', 'ert-content-tools'); ?></p>
+            <h2><?php esc_html_e('Block Visibility', 'ert-content-tools'); ?></h2>
+            <p><?php esc_html_e('Select which blocks should be available in block editor.', 'ert-content-tools'); ?></p>
             <?php
             $blocks = [
                 'toc' => 'ERT Table of Contents',
@@ -265,55 +258,55 @@ function ert_content_tools_settings_page() {
             ]);
             ?>
             <div class="settings-defaults">
-                <label for="alert_type"><?php _e('Default Alert Type', 'ert-content-tools'); ?></label>
+                <label for="alert_type"><?php esc_html_e('Default Alert Type', 'ert-content-tools'); ?></label>
                 <select name="ert_content_tools_defaults[alert_type]" id="alert_type">
                     <?php foreach (['info','success','warning','danger'] as $opt): ?>
-                        <option value="<?php echo $opt; ?>" <?php selected($defaults['alert_type'], $opt); ?>><?php echo ucfirst($opt); ?></option>
+                        <option value="<?php echo esc_attr($opt); ?>" <?php selected($defaults['alert_type'], $opt); ?>><?php echo esc_html(ucfirst($opt)); ?></option>
                     <?php endforeach; ?>
                 </select>
 
-                <label for="spinner_type"><?php _e('Default Spinner Type', 'ert-content-tools'); ?></label>
+                <label for="spinner_type"><?php esc_html_e('Default Spinner Type', 'ert-content-tools'); ?></label>
                 <select name="ert_content_tools_defaults[spinner_type]" id="spinner_type">
                     <?php foreach (['border','grow'] as $opt): ?>
-                        <option value="<?php echo $opt; ?>" <?php selected($defaults['spinner_type'], $opt); ?>><?php echo ucfirst($opt); ?></option>
+                        <option value="<?php echo esc_attr($opt); ?>" <?php selected($defaults['spinner_type'], $opt); ?>><?php echo esc_html(ucfirst($opt)); ?></option>
                     <?php endforeach; ?>
                 </select>
 
-                <label for="spinner_color"><?php _e('Default Spinner Color', 'ert-content-tools'); ?></label>
+                <label for="spinner_color"><?php esc_html_e('Default Spinner Color', 'ert-content-tools'); ?></label>
                 <select name="ert_content_tools_defaults[spinner_color]" id="spinner_color">
                     <?php foreach (['primary','secondary','success','danger','warning'] as $opt): ?>
-                        <option value="<?php echo $opt; ?>" <?php selected($defaults['spinner_color'], $opt); ?>><?php echo ucfirst($opt); ?></option>
+                        <option value="<?php echo esc_attr($opt); ?>" <?php selected($defaults['spinner_color'], $opt); ?>><?php echo esc_html(ucfirst($opt)); ?></option>
                     <?php endforeach; ?>
                 </select>
 
-                <label for="spinner_size"><?php _e('Default Spinner Size', 'ert-content-tools'); ?></label>
+                <label for="spinner_size"><?php esc_html_e('Default Spinner Size', 'ert-content-tools'); ?></label>
                 <select name="ert_content_tools_defaults[spinner_size]" id="spinner_size">
                     <?php foreach (['sm','md','lg'] as $opt): ?>
-                        <option value="<?php echo $opt; ?>" <?php selected($defaults['spinner_size'], $opt); ?>><?php echo strtoupper($opt); ?></option>
+                        <option value="<?php echo esc_attr($opt); ?>" <?php selected($defaults['spinner_size'], $opt); ?>><?php echo esc_html(strtoupper($opt)); ?></option>
                     <?php endforeach; ?>
                 </select>
 
-                <label for="progress_variant"><?php _e('Default Progress Preset', 'ert-content-tools'); ?></label>
+                <label for="progress_variant"><?php esc_html_e('Default Progress Preset', 'ert-content-tools'); ?></label>
                 <select name="ert_content_tools_defaults[progress_variant]" id="progress_variant">
                     <?php foreach (['primary','secondary','success','danger','warning','info','dark','light'] as $opt): ?>
-                        <option value="<?php echo $opt; ?>" <?php selected($defaults['progress_variant'], $opt); ?>><?php echo ucfirst($opt); ?></option>
+                        <option value="<?php echo esc_attr($opt); ?>" <?php selected($defaults['progress_variant'], $opt); ?>><?php echo esc_html(ucfirst($opt)); ?></option>
                     <?php endforeach; ?>
                 </select>
 
-                <label for="progress_track_color"><?php _e('Default Progress Track Color', 'ert-content-tools'); ?></label>
+                <label for="progress_track_color"><?php esc_html_e('Default Progress Track Color', 'ert-content-tools'); ?></label>
                 <input type="color" id="progress_track_color" name="ert_content_tools_defaults[progress_track_color]" value="<?php echo esc_attr($defaults['progress_track_color']); ?>">
 
-                <label for="progress_bar_color"><?php _e('Default Progress Bar Color (optional override)', 'ert-content-tools'); ?></label>
+                <label for="progress_bar_color"><?php esc_html_e('Default Progress Bar Color (optional override)', 'ert-content-tools'); ?></label>
                 <input type="color" id="progress_bar_color" name="ert_content_tools_defaults[progress_bar_color]" value="<?php echo esc_attr(!empty($defaults['progress_bar_color']) ? $defaults['progress_bar_color'] : '#0d6efd'); ?>">
 
-                <label for="progress_text_color"><?php _e('Default Progress Text Color (optional override)', 'ert-content-tools'); ?></label>
+                <label for="progress_text_color"><?php esc_html_e('Default Progress Text Color (optional override)', 'ert-content-tools'); ?></label>
                 <input type="color" id="progress_text_color" name="ert_content_tools_defaults[progress_text_color]" value="<?php echo esc_attr(!empty($defaults['progress_text_color']) ? $defaults['progress_text_color'] : '#ffffff'); ?>">
             </div>
 
             <h2><?php _e('Global Settings', 'ert-content-tools'); ?></h2>
             <?php $global_class = get_option('ert_content_tools_global_class', ''); ?>
             <div class="settings-defaults">
-                <label for="global_class"><?php _e('Global CSS Class Prefix', 'ert-content-tools'); ?></label>
+                <label for="global_class"><?php esc_html_e('Global CSS Class Prefix', 'ert-content-tools'); ?></label>
                 <input type="text" id="global_class" name="ert_content_tools_global_class" value="<?php echo esc_attr($global_class); ?>">
             </div>
 
@@ -338,13 +331,13 @@ function ert_content_tools_smoke_test_page() {
 
     ?>
     <div class="wrap ert-settings-page">
-        <h1><?php _e('ERT Smoke Test Checklist', 'ert-content-tools'); ?></h1>
+        <h1><?php esc_html_e('ERT Smoke Test Checklist', 'ert-content-tools'); ?></h1>
         <?php if (!empty($rendered_html)) : ?>
             <div style="line-height: 1.6; background: #fff; border: 1px solid #dcdcde; padding: 16px;">
                 <?php echo wp_kses_post($rendered_html); ?>
             </div>
         <?php else : ?>
-            <div class="notice notice-warning"><p><?php _e('SMOKE_TEST_CHECKLIST.md file could not be read.', 'ert-content-tools'); ?></p></div>
+            <div class="notice notice-warning"><p><?php esc_html_e('SMOKE_TEST_CHECKLIST.md file could not be read.', 'ert-content-tools'); ?></p></div>
         <?php endif; ?>
     </div>
     <?php

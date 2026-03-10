@@ -11,7 +11,10 @@
     "customClassName": true,
     "anchor": true,
     "reusable": true,
-    "align": ["wide", "full"],
+    "align": [
+      "wide",
+      "full"
+    ],
     "color": {
       "background": true,
       "text": true,
@@ -41,16 +44,46 @@
     "shadow": true
   },
   "attributes": {
-    "title": { "type": "string", "default": "Collapse Title" },
-    "content": { "type": "string", "default": "Collapse content..." },
-    "collapseId": { "type": "string" },
-    "className": { "type": "string", "default": "" },
+    "title": {
+      "type": "string",
+      "default": "Collapse Title"
+    },
+    "content": {
+      "type": "string",
+      "default": "Collapse content..."
+    },
+    "collapseId": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    },
     "style": {
-      "spacing": {},
-      "border": {},
-      "typography": {},
-      "color": {},
-      "shadow": {}
+      "type": "object",
+      "default": {},
+      "properties": {
+        "color": {
+          "type": "object",
+          "default": {}
+        },
+        "spacing": {
+          "type": "object",
+          "default": {}
+        },
+        "border": {
+          "type": "object",
+          "default": {}
+        },
+        "typography": {
+          "type": "object",
+          "default": {}
+        },
+        "shadow": {
+          "type": "string",
+          "default": ""
+        }
+      }
     }
   },
   "editorScript": "file:./build/index.js",

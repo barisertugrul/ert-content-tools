@@ -1,6 +1,24 @@
 <?php
 trait ERT_Style_Helper {
 
+    protected function resolve_wp_style_value( $value ) {
+        if ( ! is_string( $value ) ) {
+            return '';
+        }
+
+        if ( strpos( $value, 'var:preset|shadow|' ) === 0 ) {
+            $slug = str_replace( 'var:preset|shadow|', '', $value );
+            return 'var(--wp--preset--shadow--' . esc_attr( $slug ) . ')';
+        }
+
+        if ( strpos( $value, 'var:preset|color|' ) === 0 ) {
+            $slug = str_replace( 'var:preset|color|', '', $value );
+            return 'var(--wp--preset--color--' . esc_attr( $slug ) . ')';
+        }
+
+        return esc_attr( $value );
+    }
+
     protected function build_inline_style( $attributes ) {
         $inline = '';
 
@@ -50,6 +68,21 @@ trait ERT_Style_Helper {
 
         if (!empty($attributes['borderStyle'])) {
             $inline .= 'border-style:' . esc_attr($attributes['borderStyle']) . ';';
+        }
+
+        // --- SHADOW ---
+        if ( ! empty( $attributes['shadow'] ) && is_string( $attributes['shadow'] ) ) {
+            $shadow = $this->resolve_wp_style_value( $attributes['shadow'] );
+            if ( ! empty( $shadow ) ) {
+                $inline .= 'box-shadow:' . $shadow . ';';
+            }
+        }
+
+        if ( ! empty( $attributes['style']['shadow'] ) && is_string( $attributes['style']['shadow'] ) ) {
+            $shadow = $this->resolve_wp_style_value( $attributes['style']['shadow'] );
+            if ( ! empty( $shadow ) ) {
+                $inline .= 'box-shadow:' . $shadow . ';';
+            }
         }
 
         return $inline;

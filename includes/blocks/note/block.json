@@ -13,10 +13,10 @@
     "align": ["wide", "full"],
 
     "color": {
-      "background": true,
+      "background": false,
       "text": true,
       "link": true,
-      "gradients": true
+      "gradients": false
     },
 
     "typography": {
@@ -42,20 +42,46 @@
       "width": true
     },
 
-    "shadow": true
+    "shadow": false
   },
   "attributes": {
     "corner": { "type": "string", "default": "top-right" },
     "paperColor": { "type": "string", "default": "#fff8b0" },
-    "foldColor": { "type": "string", "default": "#e0d080" },
+    "noteWidthMode": { "type": "string", "default": "fixed" },
+    "noteWidth": { "type": "number", "default": 320 },
+    "noteWidthUnit": { "type": "string", "default": "px" },
+    "noteAlign": { "type": "string", "default": "left" },
+    "noteTextAlign": { "type": "string", "default": "left" },
+    "outerShadow": { "type": "string", "default": "soft" },
+    "foldShadow": { "type": "string", "default": "soft" },
+    "noteFont": { "type": "string", "default": "default" },
     "text": { "type": "string", "default": "" },
     "pinColor": { "type": "string", "default": "#ff0000" },
     "style": {
-      "spacing": {},
-      "border": {},
-      "typography": {},
-      "color": {},
-      "shadow": {}
+      "type": "object",
+      "default": {},
+      "properties": {
+        "color": {
+          "type": "object",
+          "default": {}
+        },
+        "spacing": {
+          "type": "object",
+          "default": {}
+        },
+        "border": {
+          "type": "object",
+          "default": {}
+        },
+        "typography": {
+          "type": "object",
+          "default": {}
+        },
+        "shadow": {
+          "type": "string",
+          "default": ""
+        }
+      }
     }
   },
   "editorScript": "file:./build/index.js",

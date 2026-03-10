@@ -11,15 +11,16 @@
     "customClassName": true,
     "anchor": true,
     "reusable": true,
-    "align": ["wide", "full"],
-
+    "align": [
+      "wide",
+      "full"
+    ],
     "color": {
       "background": true,
       "text": true,
       "link": true,
       "gradients": true
     },
-
     "typography": {
       "fontSize": true,
       "lineHeight": true,
@@ -30,31 +31,56 @@
       "textTransform": true,
       "letterSpacing": true
     },
-
     "spacing": {
       "margin": true,
       "padding": true
     },
-
     "border": {
       "color": true,
       "radius": true,
       "style": true,
       "width": true
     },
-
     "shadow": true
   },
   "attributes": {
-    "text": { "type": "string", "default": "New" },
-    "type": { "type": "string", "default": "primary" },
-    "className": { "type": "string", "default": "" },
+    "text": {
+      "type": "string",
+      "default": "New"
+    },
+    "type": {
+      "type": "string",
+      "default": "primary"
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    },
     "style": {
-      "spacing": {},
-      "border": {},
-      "typography": {},
-      "color": {},
-      "shadow": {}
+      "type": "object",
+      "default": {},
+      "properties": {
+        "color": {
+          "type": "object",
+          "default": {}
+        },
+        "spacing": {
+          "type": "object",
+          "default": {}
+        },
+        "border": {
+          "type": "object",
+          "default": {}
+        },
+        "typography": {
+          "type": "object",
+          "default": {}
+        },
+        "shadow": {
+          "type": "string",
+          "default": ""
+        }
+      }
     }
   },
   "editorScript": "file:./build/index.js",
